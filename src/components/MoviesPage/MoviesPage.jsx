@@ -35,7 +35,7 @@ const Movies = () => {
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="query" autoFocus />
+        <input type="text" name="query" autoFocus defaultValue={queryMovie??''}/>
         <button type="submit">Search</button>
       </form>
       {loading && <Loader />}

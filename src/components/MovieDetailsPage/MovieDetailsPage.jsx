@@ -5,11 +5,13 @@ import Loader from 'components/Loader/Loader';
 import { FcSearch } from 'react-icons/fc';
 import styles from './MovieDetails.module.css';
 
+
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const comeBack = location.state?.from ?? '/';
 
   useEffect(() => {
     const onDetalisMovie = async () => {
@@ -28,7 +30,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={location?.state?.from ?? '/movies'}>
+      <Link to={comeBack}>
         <button type="button">
           <FcSearch /> Go back
         </button>
@@ -62,10 +64,10 @@ const MovieDetails = () => {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: comeBack }}>Cast</Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: comeBack }}>Reviews</Link>
           </li>
         </ul>
         <hr />

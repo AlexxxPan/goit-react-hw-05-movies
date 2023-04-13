@@ -8,7 +8,6 @@ const MovieDetails = lazy(() => import('components/MovieDetailsPage/MovieDetails
 const Cast = lazy(() => import('components/Cast/Cast'))
 const Reviews = lazy(() => import('components/Reviews/Reviews'))
 
-
 export const App = () => {
   return (
    <div className={styles.container}>
