@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { Suspense } from "react";
 import Api from '../../service/Api';
 import Loader from 'components/Loader/Loader';
 import { FcSearch } from 'react-icons/fc';
@@ -71,7 +72,9 @@ const MovieDetails = () => {
           </li>
         </ul>
         <hr />
+        <Suspense fallback={<>...</>}>
         <Outlet />
+        </Suspense>
       </div>
     </>
   );
